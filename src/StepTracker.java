@@ -57,7 +57,7 @@ public class StepTracker {
 
    }
 
-   static class MonthData {
+   private static class MonthData {
         int [] dayInMonth= new int[30];
     }
 }
