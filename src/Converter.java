@@ -3,7 +3,7 @@ public class Converter {
     double calForStep = 50;
 
     double convertToKilometers(int steps) {
-        double kilometers = (steps * stepLength) / 1000;
+        double kilometers = (steps * stepLength) / 100000;
         return kilometers;
     }
 

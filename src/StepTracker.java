@@ -22,36 +22,25 @@ public class StepTracker {
         int maxStepsPerMonth=0;
         int scoreDays=0;
         int maxScoreDays=0;
-        for(int i=0; i<30; i++){
-            System.out.println(i+1 + "день: " + monthToData[month].dayInMonth[i] + "шагов");
+        for(int i=0; i<30; i++) {
+            System.out.println(i + 1 + "день: " + monthToData[month].dayInMonth[i] + "шагов");
 
-            sumStepsPerMonth+=monthToData[month].dayInMonth[i];
+            sumStepsPerMonth += monthToData[month].dayInMonth[i];
 
-            if(monthToData[month].dayInMonth[i]>maxStepsPerMonth){
-                maxStepsPerMonth=monthToData[month].dayInMonth[i];
+            if (monthToData[month].dayInMonth[i] > maxStepsPerMonth) {
+                maxStepsPerMonth = monthToData[month].dayInMonth[i];
             }
 
 
-            if(monthToData[month].dayInMonth[i]>=goalSteps && scoreDays==0) {
+            if (monthToData[month].dayInMonth[i] >= goalSteps) {
                 scoreDays++;
+                if (scoreDays > maxScoreDays) {
+                    maxScoreDays = scoreDays;
+                }
+            } else {
+                scoreDays = 0;
             }
-            else if(monthToData[month].dayInMonth[i]>=goalSteps && scoreDays!=0){
-                scoreDays++;
-            }
-            else if(monthToData[month].dayInMonth[i]<goalSteps && scoreDays!=0){
-                scoreDays=0;
-            }
-            else if(monthToData[month].dayInMonth[i]<goalSteps && scoreDays==0){
-                scoreDays=0;
-            }
-            if(scoreDays>maxScoreDays){
-                maxScoreDays=scoreDays;
-            }
-
-
-
-
-            }
+        }
 
         System.out.println("Общее количество шагов за месяц - " + sumStepsPerMonth);
 
